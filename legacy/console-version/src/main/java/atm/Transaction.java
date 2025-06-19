@@ -1,4 +1,5 @@
 package atm;
+
 class Transaction {
     private String type;
     private double amount;

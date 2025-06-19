@@ -1,15 +1,11 @@
 package atm;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import java.util.List;
-@Component
+
 class ATM {
     private AccountHolder accountHolder;
     private DatabaseManager dbManager;
 
-    @Autowired
     public ATM(DatabaseManager dbManager) {
         this.dbManager = dbManager;
     }
@@ -30,17 +26,12 @@ class ATM {
             List<Transaction> transactions = dbManager.getTransactions(accountHolder.getId());
             if (transactions.isEmpty()) {
                 System.out.println("Недавних транзакций нет.");
-            } else {
-                System.out.println("Недавние транзакции:");
-                for (Transaction t : transactions) {
-                    System.out.println(t);
+        }  else {
+            System.out.println("Недавние транзакции:");
+            for (Transaction t : transactions) {
+                System.out.println(t);
                 }
             }
         }
     }
-
-    public AccountHolder getAccountHolder() {
-        return accountHolder;
-    }
 }
-
